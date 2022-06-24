@@ -2837,6 +2837,8 @@ let capt = `⭔ Title: ${judul}
 │⭔ ${prefix}setmenu [option]
 │
 └───────⭓`
+                let btn = [{
+                            }]
                
                          let setbot = db.data.settings[botNumber]
                         if (setbot.templateImage) {
