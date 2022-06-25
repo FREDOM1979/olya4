@@ -773,7 +773,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
 		await hisoka.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
 	}
 	break
-	case 'promote': {
+	case 'датьадмина': {
 		if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
@@ -781,7 +781,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
 		await hisoka.groupParticipantsUpdate(m.chat, [users], 'promote').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
 	}
 	break
-	case 'demote': {
+	case 'снятьадмина': {
 		if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
@@ -851,7 +851,7 @@ let teks = `══✪〘 *👥 ОБЬЯВЛЕНИЕ ДЛЯ ВСЕХ* 〙✪═�
                 hisoka.sendMessage(m.chat, { text: teks, mentions: participants.map(a => a.id) }, { quoted: m })
                 }
                 break
-                case 'hidetag': {
+                case 'hidetag22': {
             if (!m.isGroup) throw mess.group
             if (!isBotAdmins) throw mess.botAdmin
             if (!isAdmins) throw mess.admin
@@ -2794,12 +2794,10 @@ let capt = `⭔ Title: ${judul}
 │⭔ ${prefix}ссылкагруппы 
 │⭔ ${prefix}добавитьучастника [номер тел]
 │⭔ ${prefix}удалитьучастника [выбрать участника через @]
-│⭔ ${prefix}hidetag [text]
 │⭔ ${prefix}обьявление [текст]
-│⭔ ${prefix}totag [reply]
 │⭔ ${prefix}антиссылка [вкл/выкл]
-│⭔ ${prefix}promote @user
-│⭔ ${prefix}demote @user
+│⭔ ${prefix}датьадмина [выбрать участника через @]
+│⭔ ${prefix}снятьадмина [выбрать участника через @]
 │⭔ ${prefix}стикер
 └───────⭓
 
