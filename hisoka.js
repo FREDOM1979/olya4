@@ -757,7 +757,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
           m.reply(`Exif berhasil diubah menjadi\n\n⭔ Packname : ${global.packname}\n⭔ Author : ${global.author}`)
             }
             break
-	case 'kick': {
+	case 'удалитьучастника':case 'удалить участника': {
 		if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
@@ -765,12 +765,12 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
 		await hisoka.groupParticipantsUpdate(m.chat, [users], 'remove').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
 	}
 	break
-	case 'add': {
+	case 'добавитьучастника' :case 'добавить участника': {
 		if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
 		let users = m.quoted ? m.quoted.sender : text.replace(/[^0-9]/g, '')+'@s.whatsapp.net'
-		await hisoka.groupParticipantsUpdate(m.chat, [users], 'add').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
+		await hisoka.groupParticipantsUpdate(m.chat,${response}, 'add').then((res) => m.reply(jsonformat(res))).catch((err) => m.reply(jsonformat(err)))
 	}
 	break
 	case 'promote': {
@@ -809,7 +809,7 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                 await hisoka.groupUpdateSubject(m.chat, text).then((res) => m.reply(mess.success)).catch((err) => m.reply(jsonformat(err)))
             }
             break
-          case 'setdesc': case 'setdesk': {
+          case 'сменитьправилагруппы': case 'сменить правила группы': {
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
@@ -838,13 +838,13 @@ Silahkan @${m.mentionedJid[0].split`@`[0]} untuk ketik terima/tolak`
                 m.reply(mess.success)
                 }
                 break
-            case 'tagall': {
+            case 'обьявление': {
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
-let teks = `══✪〘 *👥 Tag All* 〙✪══
+let teks = `══✪〘 *👥 ОБЬЯВЛЕНИЕ ДЛЯ ВСЕХ* 〙✪══
  
- ➲ *Pesan : ${q ? q : 'kosong'}*\n\n`
+ ➲ *Внимание ⚠ : ${q ? q : 'ВЫЗЫВАЮ ВСЕХ'}*\n\n`
                 for (let mem of participants) {
                 teks += `⭔ @${mem.id.split('@')[0]}\n`
                 }
@@ -1041,7 +1041,7 @@ break
             m.reply('Berhasil Menghapus Sesi Vote Di Grup Ini')
 	    }
             break
-               case 'group': case 'grup': {
+            case 'группа': {
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
@@ -1051,15 +1051,15 @@ break
                     await hisoka.groupSettingUpdate(m.chat, 'not_announcement').then((res) => m.reply(`Sukses Membuka Group`)).catch((err) => m.reply(jsonformat(err)))
                 } else {
                 let buttons = [
-                        { buttonId: 'group open', buttonText: { displayText: 'Open' }, type: 1 },
-                        { buttonId: 'group close', buttonText: { displayText: 'Close' }, type: 1 }
+                        { buttonId: 'group open', buttonText: { displayText: 'ОТКРЫТЬ' }, type: 1 },
+                        { buttonId: 'group close', buttonText: { displayText: 'ЗАКРЫТЬ' }, type: 1 }
                     ]
                     await hisoka.sendButtonText(m.chat, buttons, `Mode Group`, hisoka.user.name, m)
 
              }
             }
             break
-            case 'editinfo': {
+            case 'editinfo22': {
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
@@ -1077,22 +1077,22 @@ break
             }
             }
             break
-            case 'antilink': {
+            case 'антиссылка': {
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
                 if (args[0] === "on") {
-                if (db.data.chats[m.chat].antilink) return m.reply(`Sudah Aktif Sebelumnya`)
+                if (db.data.chats[m.chat].antilink) return m.reply(`*Антиссылка была активна активна*`)
                 db.data.chats[m.chat].antilink = true
-                m.reply(`Antilink Aktif !`)
+                m.reply(`*Антиссылка включена!*`)
                 } else if (args[0] === "off") {
-                if (!db.data.chats[m.chat].antilink) return m.reply(`Sudah Tidak Aktif Sebelumnya`)
+                if (!db.data.chats[m.chat].antilink) return m.reply(`*Антиссылка была не активна*`)
                 db.data.chats[m.chat].antilink = false
-                m.reply(`Antilink Tidak Aktif !`)
+                m.reply(`*Антиссылка отключена!*`)
                 } else {
                  let buttons = [
-                        { buttonId: 'antilink on', buttonText: { displayText: 'On' }, type: 1 },
-                        { buttonId: 'antilink off', buttonText: { displayText: 'Off' }, type: 1 }
+                        { buttonId: 'antilink on', buttonText: { displayText: 'ВКЛ' }, type: 1 },
+                        { buttonId: 'antilink off', buttonText: { displayText: 'ВЫКЛ' }, type: 1 }
                     ]
                     await hisoka.sendButtonText(m.chat, buttons, `Mode Antilink`, hisoka.user.name, m)
                 }
@@ -1119,9 +1119,10 @@ break
                 }
              }
              break
-            case 'linkgroup': case 'linkgc': {
+            case 'ссылкагруппы': {
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
+                if (!isAdmins) throw mess.admin
                 let response = await hisoka.groupInviteCode(m.chat)
                 hisoka.sendText(m.chat, `https://chat.whatsapp.com/${response}\n\nLink Group : ${groupMetadata.subject}`, m, { detectLink: true })
             }
@@ -1289,7 +1290,7 @@ break
                     hisoka.sendText(m.chat, 'List Online:\n\n' + online.map(v => '⭔ @' + v.replace(/@.+/, '')).join`\n`, m, { mentions: online })
              }
              break
-            case 'sticker': case 's': case 'stickergif': case 'sgif': {
+            case 'стикер': case 's': case 'с': {
             if (!quoted) throw `Balas Video/Image Dengan Caption ${prefix + command}`
             m.reply(mess.wait)
                     if (/image/.test(mime)) {
@@ -2786,21 +2787,20 @@ let capt = `⭔ Title: ${judul}
             }
             break
             case 'менюшка': {
-                anu = `┌──⭓ *Group Menu*
+                anu = `┌──⭓ *МЕНЮ ГРУППЫ*
 │
-│⭔ ${prefix}linkgroup
-│⭔ ${prefix}setdesc [text]
-│⭔ ${prefix}group [option]
-│⭔ ${prefix}editinfo [option]
-│⭔ ${prefix}add @user
-│⭔ ${prefix}kick @user
+│⭔ ${prefix}сменитьправилагруппы [текст]
+│⭔ ${prefix}группа 
+│⭔ ${prefix}ссылкагруппы 
+│⭔ ${prefix}добавитьучастника [номер тел]
+│⭔ ${prefix}удалитьучастника [выбрать участника через @]
 │⭔ ${prefix}hidetag [text]
-│⭔ ${prefix}tagall [text]
+│⭔ ${prefix}обьявление [текст]
 │⭔ ${prefix}totag [reply]
-│⭔ ${prefix}antilink [on/off]
+│⭔ ${prefix}антиссылка [вкл/выкл]
 │⭔ ${prefix}promote @user
 │⭔ ${prefix}demote @user
-│⭔ ${prefix}sticker
+│⭔ ${prefix}стикер
 └───────⭓
 
 ┌──⭓ *Owner Menu*

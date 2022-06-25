@@ -26,15 +26,15 @@ global.sessionName = 'Ванилька'
 global.prefa = ['','!','.','🐦','🐤','🗿']
 global.sp = '⭔'
 global.mess = {
-    success: '✓ Success',
-    admin: 'Fitur Khusus Admin Group!',
-    botAdmin: 'Bot Harus Menjadi Admin Terlebih Dahulu!',
-    owner: 'Fitur Khusus Owner Bot',
-    group: 'Fitur Digunakan Hanya Untuk Group!',
-    private: 'Fitur Digunakan Hanya Untuk Private Chat!',
-    bot: 'Fitur Khusus Pengguna Nomor Bot',
-    wait: 'Loading...',
-    endLimit: 'Limit Harian Anda Telah Habis, Limit Akan Direset Setiap Jam 12',
+    success: '✓ ВЫПОЛНЕНО',
+    admin: 'Эта функция предназначена только для администраторов группы!',
+    botAdmin: '*Для выполнения этой команды, БОТ должен быть администратором группы!*',
+    owner: '*Эта функция предназначена только для владельца!*',
+    group: '*Функция используется только для групп!*',
+    private: '*Функции, используемые только для приватного чата!*',
+    bot: '*Эта функция предназначена только для бота!*',
+    wait: '*ЗАГРУЖАЕТСЯ...*',
+    endLimit: '*Срок действия дневного лимита истек, лимит будет обнуляться каждые 12 часов*',
 }
 global.limitawal = {
     premium: "Infinity",
