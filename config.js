@@ -23,7 +23,7 @@ global.premium = ['77072763560']
 global.packname = 'Ванилька'
 global.author = 'Ванилька Bot'
 global.sessionName = 'Ванилька'
-global.prefa = ['','!','.','🐦','🐤','🗿']
+global.prefa = ['#','!','.']
 global.sp = '⭔'
 global.mess = {
     success: '✓ ВЫПОЛНЕНО',
