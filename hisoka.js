@@ -2789,9 +2789,6 @@ let capt = `⭔ Title: ${judul}
                 anu = `┌──⭓ *Group Menu*
 │
 │⭔ ${prefix}linkgroup
-│⭔ ${prefix}ephemeral [option]
-│⭔ ${prefix}setppgc [image]
-│⭔ ${prefix}setname [text]
 │⭔ ${prefix}setdesc [text]
 │⭔ ${prefix}group [option]
 │⭔ ${prefix}editinfo [option]
