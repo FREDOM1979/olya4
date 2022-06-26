@@ -80,10 +80,10 @@ module.exports = hisoka = async (hisoka, m, chatUpdate, store) => {
             if (typeof chats !== 'object') global.db.data.chats[m.chat] = {}
             if (chats) {
                 if (!('mute' in chats)) chats.mute = false
-                if (!('антиссылка' in chats)) chats.antilink = false
+                if (!('antilink' in chats)) chats.antilink = false
             } else global.db.data.chats[m.chat] = {
                 mute: false,
-                антиссылка: false,
+                antilink: false,
             }
 		
 	    let setting = global.db.data.settings[botNumber]
@@ -1077,24 +1077,24 @@ break
             }
             }
             break
-            case 'антиссылка': {
+            case 'antilink': {
                 if (!m.isGroup) throw mess.group
                 if (!isBotAdmins) throw mess.botAdmin
                 if (!isAdmins) throw mess.admin
                 if (args[0] === "on") {
-                if (db.data.chats[m.chat].antilink) return m.reply(`*Антиссылка была активна активна*`)
+                if (db.data.chats[m.chat].antilink) return m.reply(`Sudah Aktif Sebelumnya`)
                 db.data.chats[m.chat].antilink = true
-                m.reply(`*Антиссылка включена!*`)
+                m.reply(`Antilink Aktif !`)
                 } else if (args[0] === "off") {
-                if (!db.data.chats[m.chat].antilink) return m.reply(`*Антиссылка была не активна*`)
+                if (!db.data.chats[m.chat].antilink) return m.reply(`Sudah Tidak Aktif Sebelumnya`)
                 db.data.chats[m.chat].antilink = false
-                m.reply(`*Антиссылка отключена!*`)
+                m.reply(`Antilink Tidak Aktif !`)
                 } else {
                  let buttons = [
-                        { buttonId: 'antilink on', buttonText: { displayText: 'ВКЛ' }, type: 1 },
-                        { buttonId: 'antilink off', buttonText: { displayText: 'ВЫКЛ' }, type: 1 }
+                        { buttonId: 'antilink on', buttonText: { displayText: 'On' }, type: 1 },
+                        { buttonId: 'antilink off', buttonText: { displayText: 'Off' }, type: 1 }
                     ]
-                    await hisoka.sendButtonText(m.chat, buttons, `Mode антиссылка`, hisoka.user.name, m)
+                    await hisoka.sendButtonText(m.chat, buttons, `Mode Antilink`, hisoka.user.name, m)
                 }
              }
              break
@@ -2795,7 +2795,7 @@ let capt = `⭔ Title: ${judul}
 │⭔ ${prefix}добавитьучастника [номер тел]
 │⭔ ${prefix}удалитьучастника [выбрать участника через @]
 │⭔ ${prefix}обьявление [текст]
-│⭔ ${prefix}антиссылка [вкл/выкл]
+│⭔ ${prefix}antilin [on/off]
 │⭔ ${prefix}датьадмина [выбрать участника через @]
 │⭔ ${prefix}снятьадмина [выбрать участника через @]
 │⭔ ${prefix}стикер
